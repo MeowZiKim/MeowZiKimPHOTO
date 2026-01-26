@@ -1,1 +1,18 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "works"
+    label: "Works"
+    folder: "content/works"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "標題", name: "title", widget: "string" }
+      - { label: "主圖", name: "image", widget: "image" }
+      - { label: "介紹", name: "body", widget: "markdown" }
 
