@@ -5,6 +5,7 @@
 	Multiverse by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+
 */
 
 @-moz-keyframes spinner {
@@ -2048,3 +2049,27 @@ input, select, textarea {
 		#footer .copyright a {
 			color: inherit;
 		}
+
+/* 設定進度條的初始外觀 */
+#footer-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%; /* 讓它撐滿整個 Footer 的高度 */
+    width: 0%;    /* 初始長度為 0 */
+    background-color: #3498db; /* 你想要的顏色，例如藍色 */
+    z-index: -1;  /* 關鍵！確保它在文字內容的後方，不會擋到字 */
+    transition: width 0.1s ease-out; /* 讓顏色增長時更平滑 */
+}
+
+/* 確保 footer 內容是透明的，才看得到後面的背景色 */
+#footer {
+    position: relative;
+    overflow: hidden; /* 防止進度條超出邊界 */
+    background-color: #222; /* Footer 原本的底色 */
+}
+
+#footer .inner {
+    position: relative;
+    z-index: 1; /* 確保內容在進度條上方 */
+}
