@@ -11,43 +11,25 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		<style>
-    /* 確保底部黑欄是定位基準 */
-    #footer {
-        position: fixed !important;
-        bottom: 0 !important;
-        left: 0 !important;
-        width: 100% !important;
-        height: 3em !important; /* 配合模板預設高度 */
-        background-color: #1f1f1f !important;
-        overflow: hidden !important;
-        padding: 0 !important; /* 避免內縮導致進度條對不齊 */
-    }
+	#footer-progress-bar {
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    /* 這裡的高度要剛好等於你截圖中黑色那一條的高度 */
+    height: 44px !important; 
+    width: 0%;
+    background: linear-gradient(to right, #4facfe 0%, #00f2fe 100%) !important;
+    opacity: 0.5 !important;
+    /* 關鍵：z-index 要設定在 wrapper 之上，但在面板內容之下 */
+    z-index: 10 !important; 
+    pointer-events: none !important;
+    transition: width 0.1s ease-out;
+}
 
-    /* 進度條背景層 */
-    #footer-progress-bar {
-        position: absolute !important;
-        top: 0 !important;
-        left: 0 !important;
-        height: 100% !important;
-        width: 0%; 
-        background: linear-gradient(to right, #4facfe 0%, #00f2fe 100%) !important;
-        opacity: 0.5 !important;
-        z-index: 0 !important;
-        pointer-events: none !important;
-        transition: width 0.1s ease-out;
-    }
-
-    /* 內容層：確保文字（VENUSSS）浮在藍色上面 */
-    #footer .inner {
-        position: relative !important;
-        z-index: 1 !important;
-        display: flex;
-        align-items: center;
-        height: 100%;
-        padding: 0 1.5rem; /* 保持文字邊距 */
-    }
-</style>
+/* 確保點擊 About 彈出的面板文字還是在最前面 */
+#footer.panel.active {
+    z-index: 100 !important;
+}
 	</head>
 	<body class="is-preload">
 
@@ -129,8 +111,8 @@
 					</div>
 
 				<!-- Footer -->
+				<div id="footer-progress-bar"></div>
 					<footer id="footer" class="panel">
-						<div id="footer-progress-bar"></div>
 						<div class="inner split">
 							<div>
 								<section>
@@ -189,6 +171,25 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 
+	<script>
+    // 監控捲動百分比
+    function updateProgress() {
+        var winScroll = window.pageYOffset || document.documentElement.scrollTop;
+        var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        var scrolled = (winScroll / height) * 100;
+        
+        var bar = document.getElementById("footer-progress-bar");
+        if (bar) {
+            bar.style.width = scrolled + "%";
+
+        }
+    }
+
+    // 強制掛載監聽器
+    window.addEventListener('scroll', updateProgress, true);
+    window.addEventListener('resize', updateProgress, true);
+</script>
 	</body>
 
 </html>
+
