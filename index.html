@@ -11,6 +11,23 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	    <style>
+/* 這是定義呼吸動作的細節 */
+@keyframes breathe {
+    0% {
+        opacity: 0.4; /* 最暗 */
+        box-shadow: 0 0 5px rgba(79, 172, 254, 0.2);
+    }
+    50% {
+        opacity: 0.8; /* 最亮 */
+        box-shadow: 0 0 15px rgba(79, 172, 254, 0.7);
+    }
+    100% {
+        opacity: 0.4; /* 回到最暗 */
+        box-shadow: 0 0 5px rgba(79, 172, 254, 0.2);
+    }
+}
+</style>
 	</head>
 	<body class="is-preload">
           
@@ -92,7 +109,7 @@
 					</div>
 
 				<!-- Footer -->
-				<div id="footer-progress-bar" style="position: fixed !important; bottom: 0 !important; left: 0 !important; height: 4px !important; width: 0%; background: linear-gradient(to right, #4facfe 0%, #00f2fe 100%) !important; z-index: 2147483647 !important; display: block !important; pointer-events: none !important; box-shadow: 0 0 8px rgba(79, 172, 254, 0.5); opacity: 0.6 !important;"></div>
+				<div id="footer-progress-bar" style="position: fixed !important; bottom: 0 !important; left: 0 !important; height: 4px !important; width: 0%; background: linear-gradient(to right, #4facfe 0%, #00f2fe 100%) !important; z-index: 2147483647 !important; display: block !important; pointer-events: none !important; box-shadow: 0 0 8px rgba(79, 172, 254, 0.5); animation: breathe 3s ease-in-out infinite;"></div>
 					<footer id="footer" class="panel">
 						<div class="inner split">
 							<div>
@@ -173,6 +190,7 @@
 	</body>
 
 </html>
+
 
 
 
