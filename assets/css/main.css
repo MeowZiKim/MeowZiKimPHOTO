@@ -1,9 +1,3 @@
-@font-face {
-    font-family: 'MyCustomFont';
-    src: url('fonts/jf-openhuninn-2.1.ttf') format('truetype');
-}
-
-
 @import url(fontawesome-all.min.css);
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,400italic");
 
@@ -2055,6 +2049,7 @@ input, select, textarea {
 		#footer .copyright a {
 			color: inherit;
 		}
+
 
 
 
