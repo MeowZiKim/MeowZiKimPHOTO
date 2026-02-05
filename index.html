@@ -14,6 +14,16 @@
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	    <style>
 
+			/* 針對大圖彈出層與圖片本身開啟 GPU 加速 */
+.poptrox-popup, 
+.poptrox-popup img, 
+#main .thumb .image img {
+    backface-visibility: hidden;
+    perspective: 1000;
+    transform: translateZ(0); /* 強制開啟 3D 加速 */
+    will-change: transform, opacity; /* 預告瀏覽器這兩個屬性會變，提前做準備 */
+}
+
 			/* 調整圖片上的主標題 (<h2>) */
 #main .thumb h2 {
     font-size: 1.2rem !important;      /* 字體大小：可以改成 1.2rem, 2rem 等 */
@@ -208,6 +218,7 @@
 	</body>
 
 </html>
+
 
 
 
