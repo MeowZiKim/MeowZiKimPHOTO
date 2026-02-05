@@ -14,30 +14,6 @@
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	    <style>
 
-			/* 針對圖片上文字容器的調整 */
-#main .thumb .image + h2, 
-#main .thumb .image + h2 + p {
-    /* 這裡控制整體的垂直與水平位置 */
-}
-
-/* 核心調整：讓內容靠下對齊 */
-#main .thumb {
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: flex-end !important; /* 讓內容推向底部 */
-    align-items: flex-start !important;  /* 讓內容靠左對齊 */
-    padding: 2rem !important;             /* 這是關鍵！增加邊距讓文字不要貼死邊緣 */
-}
-
-/* 如果只想單獨微調標題與描述的間距 */
-#main .thumb h2 {
-    margin: 0 0 0.5rem 0 !important; /* 上 右 下 左 */
-}
-
-#main .thumb p {
-    margin: 0 !important;
-}
-
 			/* 調整圖片上的主標題 (<h2>) */
 #main .thumb h2 {
     font-size: 1.3rem !important;      /* 字體大小：可以改成 1.2rem, 2rem 等 */
@@ -232,6 +208,7 @@
 	</body>
 
 </html>
+
 
 
 
